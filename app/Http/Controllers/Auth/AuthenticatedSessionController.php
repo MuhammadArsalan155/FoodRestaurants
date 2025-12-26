@@ -12,8 +12,6 @@ class AuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
-     *
-     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -22,25 +20,45 @@ class AuthenticatedSessionController extends Controller
 
     /**
      * Handle an incoming authentication request.
-     *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LoginRequest $request)
     {
-
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // Redirect based on user role
+        return $this->redirectBasedOnRole(Auth::user());
+    }
+
+    /**
+     * Redirect user based on their role
+     */
+    protected function redirectBasedOnRole($user)
+    {
+
+        if ($user->hasRole('admin')) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        if ($user->hasRole('moderator')) {
+            return redirect()->route('moderator.dashboard');
+        }
+
+        if ($user->hasRole('restaurant_owner')) {
+            return redirect()->route('restaurant.dashboard');
+        }
+
+        if ($user->hasRole('customer')) {
+            return redirect()->route('customer.dashboard');
+        }
+
+        // Default fallback
+        return redirect()->route('third', ['admin','dashboards', 'index']);
     }
 
     /**
      * Destroy an authenticated session.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Request $request)
     {
@@ -50,6 +68,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/auth/logout');
+        return redirect()->route('login');
     }
 }

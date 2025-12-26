@@ -27,15 +27,15 @@
                 <!-- Notification -->
                 <div class="dropdown topbar-item">
                     <button type="button" class="topbar-button position-relative"
-                            id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
+                        id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
                         <iconify-icon icon="solar:bell-bing-bold-duotone" class="fs-24 align-middle"></iconify-icon>
                         <span
                             class="position-absolute topbar-badge fs-10 translate-middle badge bg-danger rounded-pill">3<span
                                 class="visually-hidden">unread messages</span></span>
                     </button>
                     <div class="dropdown-menu py-0 dropdown-lg dropdown-menu-end"
-                         aria-labelledby="page-header-notifications-dropdown">
+                        aria-labelledby="page-header-notifications-dropdown">
                         <div class="p-3 border-top-0 border-start-0 border-end-0 border-dashed border">
                             <div class="row align-items-center">
                                 <div class="col">
@@ -53,8 +53,8 @@
                             <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom text-wrap">
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src="/images/users/avatar-1.jpg"
-                                             class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-1"/>
+                                        <img src="/assets/admin/images/users/avatar-1.jpg"
+                                            class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-1" />
                                     </div>
                                     <div class="flex-grow-1">
                                         <p class="mb-0"><span class="fw-medium">Josephine Thompson </span>commented on
@@ -68,10 +68,9 @@
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
                                         <div class="avatar-sm me-2">
-                                                       <span
-                                                           class="avatar-title bg-soft-info text-info fs-20 rounded-circle">
-                                                            D
-                                                       </span>
+                                            <span class="avatar-title bg-soft-info text-info fs-20 rounded-circle">
+                                                D
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
@@ -86,8 +85,8 @@
                             <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom">
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src="/images/users/avatar-3.jpg"
-                                             class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-3"/>
+                                        <img src="/assets/admin/images/users/avatar-3.jpg"
+                                            class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-3" />
                                     </div>
                                     <div class="flex-grow-1">
                                         <p class="mb-0 fw-semibold">Jacob Gines</p>
@@ -101,11 +100,10 @@
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
                                         <div class="avatar-sm me-2">
-                                                       <span
-                                                           class="avatar-title bg-soft-warning text-warning fs-20 rounded-circle">
-                                                            <iconify-icon
-                                                                icon="iconamoon:comment-dots-duotone"></iconify-icon>
-                                                       </span>
+                                            <span
+                                                class="avatar-title bg-soft-warning text-warning fs-20 rounded-circle">
+                                                <iconify-icon icon="iconamoon:comment-dots-duotone"></iconify-icon>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
@@ -119,8 +117,8 @@
                             <a href="javascript:void(0);" class="dropdown-item py-3 border-bottom">
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src="/images/users/avatar-5.jpg"
-                                             class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-5"/>
+                                        <img src="/assets/admin/images/users/avatar-5.jpg"
+                                            class="img-fluid me-2 avatar-sm rounded-circle" alt="avatar-5" />
                                     </div>
                                     <div class="flex-grow-1">
                                         <p class="mb-0 fw-semibold">Shawn Bunch</p>
@@ -141,7 +139,7 @@
                 <!-- Theme Setting -->
                 <div class="topbar-item d-none d-md-flex">
                     <button type="button" class="topbar-button" id="theme-settings-btn" data-bs-toggle="offcanvas"
-                            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+                        data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
                         <iconify-icon icon="solar:settings-bold-duotone" class="fs-24 align-middle"></iconify-icon>
                     </button>
                 </div>
@@ -149,56 +147,68 @@
                 <!-- Activity -->
                 <div class="topbar-item d-none d-md-flex">
                     <button type="button" class="topbar-button" id="theme-settings-btn" data-bs-toggle="offcanvas"
-                            data-bs-target="#theme-activity-offcanvas" aria-controls="theme-settings-offcanvas">
-                        <iconify-icon icon="solar:clock-circle-bold-duotone" class="fs-24 align-middle"></iconify-icon>
+                        data-bs-target="#theme-activity-offcanvas" aria-controls="theme-settings-offcanvas">
+                        <iconify-icon icon="solar:clock-circle-bold-duotone"
+                            class="fs-24 align-middle"></iconify-icon>
                     </button>
                 </div>
 
                 <!-- User -->
                 <div class="dropdown topbar-item">
                     <a type="button" class="topbar-button" id="page-header-user-dropdown" data-bs-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                              <span class="d-flex align-items-center">
-                                   <img class="rounded-circle" width="32" src="/images/users/avatar-1.jpg"
-                                        alt="avatar-3">
-                              </span>
+                        aria-haspopup="true" aria-expanded="false">
+                        <span class="d-flex align-items-center">
+                            <img class="rounded-circle" width="32" src="/assets/admin/images/users/avatar-1.jpg"
+                                alt="avatar-3">
+                        </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <h6 class="dropdown-header">Welcome Gaston!</h6>
-                        <a class="dropdown-item" href="{{ route('second', ['users', 'pages-profile'])}}">
-                            <i class="bx bx-user-circle text-muted fs-18 align-middle me-1"></i><span
-                                class="align-middle">Profile</span>
+                        <h6 class="dropdown-header">
+                            Welcome {{ Auth::check() ? Auth::user()->name : 'Guest' }}!
+                        </h6>
+
+                        <a class="dropdown-item" href="{{ route('profile.show') }}">
+                            <i class="bx bx-user-circle text-muted fs-18 align-middle me-1"></i>
+                            <span class="align-middle">Profile</span>
                         </a>
-                    <a class="dropdown-item" href="{{ route('second', ['users', 'chat'])}}">
+
+                        <a class="dropdown-item" href="{{ route('second', ['users', 'chat']) }}">
                             <i class="bx bx-message-dots text-muted fs-18 align-middle me-1"></i><span
                                 class="align-middle">Messages</span>
                         </a>
 
-                        <a class="dropdown-item" href="{{ route('second', ['users', 'pricing'])}}">
-                            <i class="bx bx-wallet text-muted fs-18 align-middle me-1"></i><span class="align-middle">Pricing</span>
+                        <a class="dropdown-item" href="{{ route('second', ['users', 'pricing']) }}">
+                            <i class="bx bx-wallet text-muted fs-18 align-middle me-1"></i><span
+                                class="align-middle">Pricing</span>
                         </a>
-                        <a class="dropdown-item" href="{{ route('second', ['users', 'faqs'])}}">
+                        <a class="dropdown-item" href="{{ route('second', ['users', 'faqs']) }}">
                             <i class="bx bx-help-circle text-muted fs-18 align-middle me-1"></i><span
                                 class="align-middle">Help</span>
                         </a>
-                        <a class="dropdown-item" href="{{ route('second', [ 'auth' , 'lock-screen']) }}">
-                            <i class="bx bx-lock text-muted fs-18 align-middle me-1"></i><span class="align-middle">Lock screen</span>
+                        <a class="dropdown-item" href="{{ route('second', ['auth', 'lock-screen']) }}">
+                            <i class="bx bx-lock text-muted fs-18 align-middle me-1"></i><span
+                                class="align-middle">Lock screen</span>
                         </a>
 
                         <div class="dropdown-divider my-1"></div>
 
-                        <a class="dropdown-item text-danger" href="{{ route('second', [ 'auth' , 'login']) }}">
-                            <i class="bx bx-log-out fs-18 align-middle me-1"></i><span
-                                class="align-middle">Logout</span>
-                        </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="dropdown-item text-danger">
+                                <i class="bx bx-log-out fs-18 align-middle me-1"></i>
+                                <span class="align-middle">Logout</span>
+                            </button>
+                        </form>
+
                     </div>
                 </div>
 
                 <!-- App Search-->
                 <form class="app-search d-none d-md-block ms-2">
                     <div class="position-relative">
-                        <input type="search" class="form-control" placeholder="Search..." autocomplete="off" value="">
+                        <input type="search" class="form-control" placeholder="Search..." autocomplete="off"
+                            value="">
                         <iconify-icon icon="solar:magnifer-linear" class="search-widget-icon"></iconify-icon>
                     </div>
                 </form>
@@ -210,11 +220,11 @@
 <!-- Activity Timeline -->
 <div>
     <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-activity-offcanvas"
-         style="max-width: 450px; width: 100%;">
+        style="max-width: 450px; width: 100%;">
         <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
             <h5 class="text-white m-0 fw-semibold">Activity Stream</h5>
             <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
+                aria-label="Close"></button>
         </div>
 
         <div class="offcanvas-body p-0">
@@ -267,8 +277,9 @@
                                 <div class="d-flex align-items-center gap-3 mt-1 bg-light bg-opacity-50 p-2 rounded-2">
                                     <a href="#!" class="fw-medium text-dark">UI/UX Figma Design</a>
                                     <div class="ms-auto">
-                                        <a href="#!" class="fw-medium text-primary fs-18" data-bs-toggle="tooltip"
-                                           data-bs-title="Download" data-bs-placement="bottom">
+                                        <a href="#!" class="fw-medium text-primary fs-18"
+                                            data-bs-toggle="tooltip" data-bs-title="Download"
+                                            data-bs-placement="bottom">
                                             <iconify-icon icon="iconamoon:cloud-download-duotone"></iconify-icon>
                                         </a>
                                     </div>
@@ -298,7 +309,7 @@
                         <div class="mb-4">
                             <span
                                 class="position-absolute start-0 translate-middle-x bg-success bg-gradient d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><img
-                                    src="/images/users/avatar-7.jpg" alt="avatar-5"
+                                    src="/assets/admin/images/users/avatar-7.jpg" alt="avatar-5"
                                     class="avatar-sm rounded-circle"></span>
                             <div class="ms-2">
                                 <h5 class="mb-0 text-dark fw-semibold fs-15 lh-base">Alex Smith Attached Photos
@@ -306,17 +317,20 @@
                                 <div class="row g-2 mt-2">
                                     <div class="col-lg-4">
                                         <a href="#!">
-                                            <img src="/images/small/img-6.jpg" alt="" class="img-fluid rounded">
+                                            <img src="/assets/admin/images/small/img-6.jpg" alt=""
+                                                class="img-fluid rounded">
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
                                         <a href="#!">
-                                            <img src="/images/small/img-3.jpg" alt="" class="img-fluid rounded">
+                                            <img src="/assets/admin/images/small/img-3.jpg" alt=""
+                                                class="img-fluid rounded">
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
                                         <a href="#!">
-                                            <img src="/images/small/img-4.jpg" alt="" class="img-fluid rounded">
+                                            <img src="/assets/admin/images/small/img-4.jpg" alt=""
+                                                class="img-fluid rounded">
                                         </a>
                                     </div>
                                 </div>
@@ -328,14 +342,14 @@
                         <div class="mb-4">
                             <span
                                 class="position-absolute start-0 translate-middle-x bg-success bg-gradient d-inline-flex align-items-center justify-content-center rounded-circle text-light fs-20"><img
-                                    src="/images/users/avatar-6.jpg" alt="avatar-5"
+                                    src="/assets/admin/images/users/avatar-6.jpg" alt="avatar-5"
                                     class="avatar-sm rounded-circle"></span>
                             <div class="ms-2">
                                 <h5 class="mb-0 text-dark fw-semibold fs-15 lh-base">Rebecca J. added a new team member
                                 </h5>
                                 <p class="d-flex align-items-center gap-1">
                                     <iconify-icon icon="iconamoon:check-circle-1-duotone"
-                                                  class="text-success"></iconify-icon>
+                                        class="text-success"></iconify-icon>
                                     Added a new member to Front Dashboard
                                 </p>
                                 <h6 class="mt-3 text-muted">Monday 10:00 AM</h6>
@@ -352,7 +366,7 @@
                                 </h5>
                                 <p class="d-flex align-items-center gap-1 mt-1">Earned a
                                     <iconify-icon icon="iconamoon:certificate-badge-duotone"
-                                                  class="text-danger fs-20"></iconify-icon>
+                                        class="text-danger fs-20"></iconify-icon>
                                     " Best Product Award"
                                 </p>
                                 <h6 class="mt-3 text-muted">Monday 9:30 AM</h6>

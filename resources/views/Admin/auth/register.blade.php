@@ -20,51 +20,120 @@
 
                                 <h2 class="fw-bold fs-24">Sign Up</h2>
 
-                                <p class="text-muted mt-1 mb-4">New to our platform? Sign up now! It only takes a
-                                    minute</p>
+                                <p class="text-muted mt-1 mb-4">New to our platform? Sign up now! It only takes a minute</p>
 
                                 <div>
-                                    <form class="authentication-form">
+                                    <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data" class="authentication-form">
+                                        @csrf
+
+                                        {{-- Name Field --}}
                                         <div class="mb-3">
-                                            <label class="form-label" for="example-name">Name</label>
-                                            <input type="text" id="example-name" name="example-name"
-                                                   class="form-control" placeholder="Enter your name">
+                                            <label class="form-label" for="name">Name</label>
+                                            <input type="text" id="name" name="name"
+                                                   class="form-control @error('name') is-invalid @enderror"
+                                                   placeholder="Enter your name"
+                                                   value="{{ old('name') }}"
+                                                   required>
+                                            @error('name')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
+
+                                        {{-- Email Field --}}
                                         <div class="mb-3">
-                                            <label class="form-label" for="example-email">Email</label>
-                                            <input type="email" id="example-email" name="example-email"
-                                                   class="form-control bg-" placeholder="Enter your email">
+                                            <label class="form-label" for="email">Email</label>
+                                            <input type="email" id="email" name="email"
+                                                   class="form-control @error('email') is-invalid @enderror"
+                                                   placeholder="Enter your email"
+                                                   value="{{ old('email') }}"
+                                                   required>
+                                            @error('email')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
+
+                                        {{-- Phone Field --}}
                                         <div class="mb-3">
-                                            <label class="form-label" for="example-password">Password</label>
-                                            <input type="text" id="example-password" class="form-control"
-                                                   placeholder="Enter your password">
+                                            <label class="form-label" for="phone">Phone (Optional)</label>
+                                            <input type="text" id="phone" name="phone"
+                                                   class="form-control @error('phone') is-invalid @enderror"
+                                                   placeholder="Enter your phone number"
+                                                   value="{{ old('phone') }}">
+                                            @error('phone')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
+
+                                        {{-- User Type/Role Selection --}}
+                                        <div class="mb-3">
+                                            <label class="form-label" for="user_type">Register As</label>
+                                            <select id="user_type" name="user_type"
+                                                    class="form-select @error('user_type') is-invalid @enderror"
+                                                    required>
+                                                <option value="">Select Role</option>
+                                                <option value="customer" {{ old('user_type') == 'customer' ? 'selected' : '' }}>Customer</option>
+                                                <option value="restaurant_owner" {{ old('user_type') == 'restaurant_owner' ? 'selected' : '' }}>Restaurant Owner</option>
+                                                {{-- Uncomment if you want to allow admin/moderator registration --}}
+                                                {{-- <option value="moderator" {{ old('user_type') == 'moderator' ? 'selected' : '' }}>Moderator</option>
+                                                <option value="admin" {{ old('user_type') == 'admin' ? 'selected' : '' }}>Admin</option> --}}
+                                            </select>
+                                            @error('user_type')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        {{-- Profile Image --}}
+                                        <div class="mb-3">
+                                            <label class="form-label" for="profile_image">Profile Image (Optional)</label>
+                                            <input type="file" id="profile_image" name="profile_image"
+                                                   class="form-control @error('profile_image') is-invalid @enderror"
+                                                   accept="image/*">
+                                            @error('profile_image')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        {{-- Password Field --}}
+                                        <div class="mb-3">
+                                            <label class="form-label" for="password">Password</label>
+                                            <input type="password" id="password" name="password"
+                                                   class="form-control @error('password') is-invalid @enderror"
+                                                   placeholder="Enter your password"
+                                                   required>
+                                            @error('password')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        {{-- Confirm Password Field --}}
+                                        <div class="mb-3">
+                                            <label class="form-label" for="password_confirmation">Confirm Password</label>
+                                            <input type="password" id="password_confirmation" name="password_confirmation"
+                                                   class="form-control"
+                                                   placeholder="Confirm your password"
+                                                   required>
+                                        </div>
+
+                                        {{-- Terms Checkbox --}}
                                         <div class="mb-3">
                                             <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="checkbox-signin">
-                                                <label class="form-check-label" for="checkbox-signin">I accept Terms and
-                                                    Condition</label>
+                                                <input type="checkbox" class="form-check-input" id="terms" required>
+                                                <label class="form-check-label" for="terms">
+                                                    I accept Terms and Condition
+                                                </label>
                                             </div>
                                         </div>
 
+                                        {{-- Submit Button --}}
                                         <div class="mb-1 text-center d-grid">
                                             <button class="btn btn-soft-primary" type="submit">Sign Up</button>
                                         </div>
                                     </form>
-
-                                    {{-- <p class="mt-3 fw-semibold no-span">OR sign with</p>
-
-                                    <div class="d-grid gap-2">
-                                        <a href="javascript:void(0);" class="btn btn-soft-dark"><i
-                                                class="bx bxl-google fs-20 me-1"></i> Sign Up with Google</a>
-                                        <a href="javascript:void(0);" class="btn btn-soft-primary"><i
-                                                class="bx bxl-facebook fs-20 me-1"></i> Sign Up with Facebook</a>
-                                    </div> --}}
                                 </div>
 
-                                <p class="mt-auto text-danger text-center">I already have an account <a
-                                        href="{{ route('second', [ 'auth' , 'login']) }}" class="text-dark fw-bold ms-1">Login</a></p>
+                                <p class="mt-auto text-danger text-center">I already have an account
+                                    <a href="{{ route('third', [ 'Admin','auth' , 'login']) }}" class="text-dark fw-bold ms-1">Login</a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -75,10 +144,9 @@
                         <div class="d-flex flex-column h-100">
                             <img src="/assets/admin/images/small/img-10.jpg" alt="" class="w-100 h-100">
                         </div>
-                    </div> <!-- end card -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection

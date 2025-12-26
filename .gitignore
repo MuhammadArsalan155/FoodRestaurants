@@ -27,3 +27,4 @@ Thumbs.db
 
 # Ignore database dumps
 *.sql
+/node_modules

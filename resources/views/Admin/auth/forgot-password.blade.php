@@ -1,4 +1,4 @@
-@extends('Admin.layouts.auth', ['title' => 'Reset Password'])
+@extends('Admin.layouts.auth', ['title' => 'Forgot Password'])
 
 @section('content')
     <div class="d-flex flex-column h-100 p-3">
@@ -18,17 +18,21 @@
                                     </a>
                                 </div>
 
-                                <h2 class="fw-bold fs-24">Reset Password</h2>
+                                <h2 class="fw-bold fs-24">Forgot Password?</h2>
                                 <p class="text-muted mt-1 mb-4">
-                                    Enter your new password below.
+                                    Enter your email address and we'll send you a link to reset your password.
                                 </p>
 
-                                <div>
-                                    <form action="{{ route('password.store') }}" method="POST" class="authentication-form">
-                                        @csrf
+                                {{-- Success Message --}}
+                                @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
 
-                                        {{-- Hidden Token --}}
-                                        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+                                <div>
+                                    <form action="{{ route('password.email') }}" method="POST" class="authentication-form">
+                                        @csrf
 
                                         {{-- Email Field --}}
                                         <div class="mb-3">
@@ -38,7 +42,7 @@
                                                    name="email"
                                                    class="form-control @error('email') is-invalid @enderror"
                                                    placeholder="Enter your email"
-                                                   value="{{ old('email', $request->email) }}"
+                                                   value="{{ old('email') }}"
                                                    required
                                                    autofocus>
                                             @error('email')
@@ -46,35 +50,10 @@
                                             @enderror
                                         </div>
 
-                                        {{-- Password Field --}}
-                                        <div class="mb-3">
-                                            <label class="form-label" for="password">New Password</label>
-                                            <input type="password"
-                                                   id="password"
-                                                   name="password"
-                                                   class="form-control @error('password') is-invalid @enderror"
-                                                   placeholder="Enter new password"
-                                                   required>
-                                            @error('password')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-
-                                        {{-- Confirm Password Field --}}
-                                        <div class="mb-3">
-                                            <label class="form-label" for="password_confirmation">Confirm Password</label>
-                                            <input type="password"
-                                                   id="password_confirmation"
-                                                   name="password_confirmation"
-                                                   class="form-control"
-                                                   placeholder="Confirm new password"
-                                                   required>
-                                        </div>
-
                                         {{-- Submit Button --}}
                                         <div class="mb-1 text-center d-grid">
                                             <button class="btn btn-primary" type="submit">
-                                                Reset Password
+                                                Send Reset Link
                                             </button>
                                         </div>
                                     </form>

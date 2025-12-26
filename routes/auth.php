@@ -10,19 +10,26 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/register', [RegisteredUserController::class, 'create'])
-    ->middleware('guest')
-    ->name('register');
+// Route::get('/register', [RegisteredUserController::class, 'create'])
+//     ->middleware('guest')
+//     ->name('register');
 
-Route::post('/register', [RegisteredUserController::class, 'store'])
-    ->middleware('guest');
+// Route::post('/register', [RegisteredUserController::class, 'store'])
+//     ->middleware('guest');
 
-Route::get('/login', [AuthenticatedSessionController::class, 'create'])
-    ->middleware('guest')
-    ->name('login');
+// Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+//     ->middleware('guest')
+//     ->name('login');
 
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-    ->middleware('guest');
+// Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+//     ->middleware('guest');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store']);
+});
 
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
     ->middleware('guest')
@@ -38,7 +45,7 @@ Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
 
 Route::post('/reset-password', [NewPasswordController::class, 'store'])
     ->middleware('guest')
-    ->name('password.update');
+    ->name('password.store');
 
 Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
     ->middleware('auth')
@@ -58,7 +65,35 @@ Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
 
 Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
     ->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('logout');
+
+     Route::middleware('role:admin')->group(function () {
+        Route::get('/admin/dashboard', function () {
+            return view('Admin.dashboards.admin');
+        })->name('admin.dashboard');
+    });
+
+    // Moderator Dashboard
+    Route::middleware('role:moderator')->group(function () {
+        Route::get('/moderator/dashboard', function () {
+            return view('Admin.dashboards.moderator');
+        })->name('moderator.dashboard');
+    });
+
+    // Restaurant Owner Dashboard
+    Route::middleware('role:restaurant_owner')->group(function () {
+        Route::get('/restaurant/dashboard', function () {
+            return view('Admin.dashboards.restaurant');
+        })->name('restaurant.dashboard');
+    });
+
+    // Customer Dashboard
+    Route::middleware('role:customer')->group(function () {
+        Route::get('/customer/dashboard', function () {
+            return view('Admin.dashboards.customer');
+        })->name('customer.dashboard');
+    });
+
+ });

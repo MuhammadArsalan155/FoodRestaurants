@@ -2,13 +2,13 @@
     <!-- Sidebar Logo -->
     <div class="logo-box">
         <a href="{{ route('second', [ 'dashboards' , 'index']) }}" class="logo-dark">
-            <img src="/images/logo-sm.png" class="logo-sm" alt="logo sm">
-            <img src="/images/logo-dark.png" class="logo-lg" alt="logo dark">
+            <img src="/assets/admin/images/logo-sm.png" class="logo-sm" alt="logo sm">
+            <img src="/assets/admin/images/logo-dark.png" class="logo-lg" alt="logo dark">
         </a>
 
         <a href="{{ route('second', [ 'dashboards' , 'index']) }}" class="logo-light">
-            <img src="/images/logo-sm.png" class="logo-sm" alt="logo sm">
-            <img src="/images/logo-light.png" class="logo-lg" alt="logo light">
+            <img src="/assets/admin/images/logo-sm.png" class="logo-sm" alt="logo sm">
+            <img src="/assets/admin/images/logo-light.png" class="logo-lg" alt="logo light">
         </a>
     </div>
 
@@ -23,7 +23,7 @@
             <li class="menu-title">General</li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('second', [ 'dashboards' , 'index']) }}">
+                <a class="nav-link" href="{{ route('third', [ 'Admin','dashboards' , 'index']) }}">
                          <span class="nav-icon">
                               <iconify-icon icon="solar:widget-5-bold-duotone"></iconify-icon>
                          </span>

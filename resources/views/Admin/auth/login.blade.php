@@ -36,11 +36,11 @@
                                             <label class="form-label" for="example-email">Email</label>
                                             <input type="email" id="example-email" name="email"
                                                    class="form-control bg-" placeholder="Enter your email"
-                                                   value="test@example.com">
+                                                   value="admin@example.com">
                                         </div>
                                         <div class="mb-3">
-                                            <a href="{{ route('second', [ 'auth' , 'reset-password']) }}"
-                                               class="float-end text-muted text-unline-dashed ms-1">Reset password</a>
+                                            <a href="{{ route('password.request') }}"
+                                               class="float-end text-muted text-unline-dashed ms-1">Forget password</a>
                                             <label class="form-label" for="example-password">Password</label>
                                             <input type="password" id="example-password" class="form-control"
                                                    placeholder="Enter your password" name="password" value="password">
@@ -68,7 +68,7 @@
                                     </div> --}}
                                 </div>
 
-                                <p class="text-danger text-center">Don't have an account? <a href="{{ route('second', [ 'auth' , 'register']) }}"
+                                <p class="text-danger text-center">Don't have an account? <a href="{{ route('register') }}"
                                                                                              class="text-dark fw-bold ms-1">Register</a></p>
                             </div>
                         </div>
